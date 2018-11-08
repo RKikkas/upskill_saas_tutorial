@@ -17,7 +17,7 @@ $(document).on('turbolinks:load', function(){
     var ccNum = $('#card_number').val(),
         cvcNum = $('#card_code').val(),
         expMonth = $('#card_month').val(),
-        expYear = $('card_year').val();
+        expYear = $('#card_year').val();
         
     //Use Stripe JS library to check for card errors.
     var error = false;
@@ -52,14 +52,6 @@ $(document).on('turbolinks:load', function(){
         exp_year: expYear
       }, stripeResponseHandler);
     }
-    
-    //Send the card info to Stripe.
-    Stripe.createToken({
-      number: ccNum,
-      cvc: cvcNum,
-      exp_month: expMonth,
-      exp_year: expYear
-    }, stripeResponseHandler);
     
     return false;
   });
